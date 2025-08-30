@@ -2,17 +2,18 @@ services:
   app:
     image: kvtodev/teamcity-agent
     privileged: true
+    container_name: teamcity-agent
     volumes:
       - ./config:/data/teamcity_agent/conf
     environment:
       - DOCKER_IN_DOCKER=start
-      - HTTP_PROXY=http://host.docker.internal:7890
-      - http_proxy=http://host.docker.internal:7890
-      - HTTPS_PROXY=http://host.docker.internal:7890
-      - https_proxy=http://host.docker.internal:7890
-      - ALL_PROXY=socks5h://host.docker.internal:7890
-      - all_proxy=socks5h://host.docker.internal:7890
+      - HTTP_PROXY=http://gateway.docker.internal:7890
+      - http_proxy=http://gateway.docker.internal:7890
+      - HTTPS_PROXY=http://gateway.docker.internal:7890
+      - https_proxy=http://gateway.docker.internal:7890
+      - ALL_PROXY=socks5h://gateway.docker.internal:7890
+      - all_proxy=socks5h://gateway.docker.internal:7890
       - NO_PROXY=localhost,127.0.0.1,::1
       - no_proxy=localhost,127.0.0.1,::1
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "gateway.docker.internal:host-gateway"
