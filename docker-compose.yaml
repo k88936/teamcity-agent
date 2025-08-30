@@ -1,5 +1,5 @@
 services:
-  teamcity-agent:
+  app:
     image: kvtodev/teamcity-agent
     privileged: true
     volumes:
