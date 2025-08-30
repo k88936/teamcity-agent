@@ -3,6 +3,7 @@ FROM jetbrains/teamcity-agent
 # Switch to root for installing dependencies
 USER root
 # Install base build dependencies + Rust/Flutter prerequisites + C/C++ toolchain + Qt6
+
 RUN apt-get update && apt-get install -y \
 		sudo \
 		curl \
@@ -20,8 +21,13 @@ RUN apt-get update && apt-get install -y \
 		lld \
 		libc++-dev \
 		libc++abi-dev \
+		iptables \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
+
+# Force iptables legacy (for Dind)
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy \
+	&& update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 # Install Qt6 in a dedicated layer (improves cache reuse when non-Qt deps change)
 RUN apt-get update && apt-get install -y \
