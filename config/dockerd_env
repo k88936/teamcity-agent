@@ -1,0 +1,6 @@
+# /etc/default/docker
+# Proxy settings for Docker daemon
+
+export HTTP_PROXY=http://host.docker.internal:7890
+export HTTPS_PROXY=http://host.docker.internal:7890
+export NO_PROXY=localhost,127.0.0.1,::1,host.docker.internal,.local
