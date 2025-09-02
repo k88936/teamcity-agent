@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y \
 		lld \
 		libc++-dev \
 		libc++abi-dev \
+		pkg-config \
+		libssl-dev \
 		iptables \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
