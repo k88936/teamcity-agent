@@ -64,5 +64,11 @@ ENV JDK_11_0="/usr/lib/jvm/java-11-openjdk-amd64"
 ENV JDK_17_0="/usr/lib/jvm/java-17-openjdk-amd64"
 ENV JDK_21_0="/usr/lib/jvm/java-21-openjdk-amd64"
 
+# Install vcpkg
+RUN git clone https://github.com/microsoft/vcpkg.git /opt/vcpkg \
+	&& /opt/vcpkg/bootstrap-vcpkg.sh \
+	&& ln -s /opt/vcpkg/vcpkg /usr/local/bin/vcpkg
+
+
 RUN apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
