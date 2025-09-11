@@ -9,6 +9,11 @@ services:
     volumes:
       - ./config/buildAgent.properties:/data/teamcity_agent/conf/buildAgent.properties
       - ./config/dockerd_env:/etc/default/docker:ro
+
+      - ./cache/m2-repository:/root/.m2/repository
+      - ./cache/cargo-registry:/root/.cargo/registry
+      - ./cache/cargo-git:/root/.cargo/git
+      - ./cache/docker:/var/lib/docker
     environment:
       - DOCKER_IN_DOCKER=start
       - no_proxy=localhost,127.0.0.1,::1,host.docker.internal,.local
@@ -19,22 +24,3 @@ services:
       - HTTPS_PROXY=http://host.docker.internal:7890
     extra_hosts:
       - "host.docker.internal:host-gateway"
-
-# services:
-#   app:
-#     image: kvtodev/teamcity-agent
-#     container_name: teamcity-agent
-#     privileged: true
-#     restart: unless-stopped
-#     volumes:
-#       - ./config:/data/teamcity_agent/conf
-#     environment:
-#       - DOCKER_IN_DOCKER=start
-#       - no_proxy=localhost,127.0.0.1,::1,host.docker.internal,.local
-#       - NO_PROXY=localhost,127.0.0.1,::1,host.docker.internal,.local
-#       - http_proxy=http://host.docker.internal:7890
-#       - https_proxy=http://host.docker.internal:7890
-#       - HTTP_PROXY=http://host.docker.internal:7890
-#       - HTTPS_PROXY=http://host.docker.internal:7890
-#     extra_hosts:
-#       - "host.docker.internal:host-gateway"
