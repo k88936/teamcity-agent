@@ -12,19 +12,10 @@ RUN apt-get install -y \
 		git \
 		unzip \
 		xz-utils \
-		libglu1-mesa \
 		wget \
 		ca-certificates \
 		build-essential \
-		cmake \
-		ninja-build \
-		clang \
-		lldb \
-		lld \
-		libc++-dev \
-		libc++abi-dev \
 		pkg-config \
-		libssl-dev \
 		iptables
 
 # Force iptables legacy (for Dind)
