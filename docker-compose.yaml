@@ -10,9 +10,6 @@ services:
       - ./config/buildAgent.properties:/data/teamcity_agent/conf/buildAgent.properties
       - ./config/dockerd_env:/etc/default/docker:ro
 
-      - ./cache/m2-repository:/root/.m2/repository
-      - ./cache/cargo-registry:/root/.cargo/registry
-      - ./cache/cargo-git:/root/.cargo/git
       - ./cache/docker:/var/lib/docker
     environment:
       - DOCKER_IN_DOCKER=start
