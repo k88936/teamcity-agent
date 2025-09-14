@@ -1,5 +1,3 @@
-
-
 FROM jetbrains/teamcity-agent
 
 USER root
@@ -17,10 +15,6 @@ RUN apt-get install -y \
 		build-essential \
 		pkg-config \
 		iptables
-
-# Force iptables legacy (for Dind)
-RUN update-alternatives --set iptables /usr/sbin/iptables-legacy \
-	&& update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 # Install GitHub CLI
 RUN type -p curl >/dev/null || apt-get update && apt-get install -y curl \

@@ -7,12 +7,13 @@ services:
     network_mode: bridge
     restart: unless-stopped
     volumes:
-      - ./config/buildAgent.properties:/data/teamcity_agent/conf/buildAgent.properties
       - ./config/dockerd_env:/etc/default/docker:ro
 
       - ./cache/docker:/var/lib/docker
     environment:
+      - SERVER_URL=http://host.docker.internal:10411
       - DOCKER_IN_DOCKER=start
+      - DOCKER_IPTABLES_LEGACY=1
       - no_proxy=localhost,127.0.0.1,::1,host.docker.internal,.local
       - NO_PROXY=localhost,127.0.0.1,::1,host.docker.internal,.local
       - http_proxy=http://host.docker.internal:7890
