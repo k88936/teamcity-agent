@@ -8,7 +8,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./config/dockerd_env:/etc/default/docker:ro
-
       - ./cache/docker:/var/lib/docker
     environment:
       - SERVER_URL=http://host.docker.internal:10411
