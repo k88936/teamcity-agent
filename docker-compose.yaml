@@ -1,6 +1,5 @@
 services:
   app:
-    # image: jetbrains/teamcity-agent:2025.07.1-linux-sudo
     image: kvtodev/teamcity-agent
     container_name: teamcity-agent
     privileged: true
@@ -12,7 +11,7 @@ services:
       - ./cache/gradle:/root/.gradle
       - ./cache/m2:/root/.m2
     environment:
-      - SERVER_URL=http://host.docker.internal:10411
+      - SERVER_URL=https://teamcity.k88936.top
       - DOCKER_IN_DOCKER=start
       - DOCKER_IPTABLES_LEGACY=1
       - no_proxy=localhost,127.0.0.1,::1,host.docker.internal,.local
