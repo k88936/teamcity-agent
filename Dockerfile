@@ -9,6 +9,7 @@ RUN apt-get install -y \
 		curl \
 		git \
 		unzip \
+		jq \
 		xz-utils \
 		wget \
 		ca-certificates \
