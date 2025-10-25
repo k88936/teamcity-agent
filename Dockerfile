@@ -2,9 +2,8 @@ FROM jetbrains/teamcity-agent
 
 USER root
 
-RUN apt-get update 
-
-RUN apt-get install -y \
+RUN apt-get update && \
+	apt-get install -y \
 		sudo \
 		curl \
 		git \
