@@ -26,3 +26,5 @@ ENV GH_CLI=true
 
 RUN apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
+
+ENV PLATFORM_LINUX=true
