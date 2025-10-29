@@ -10,6 +10,7 @@ services:
       - ./cache/docker:/var/lib/docker
       - ./cache/gradle:/root/.gradle
       - ./cache/m2:/root/.m2
+      - ./cache/android-sdk:/opt/android-sdk
     environment:
       - SERVER_URL=https://teamcity.k88936.top
       - DOCKER_IN_DOCKER=start
