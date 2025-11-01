@@ -13,6 +13,7 @@ services:
       - ./cache/android-sdk:/opt/android-sdk
     environment:
       - SERVER_URL=https://teamcity.k88936.top
+      - AGENT_NAME=linux-agent
       - DOCKER_IN_DOCKER=start
       - DOCKER_IPTABLES_LEGACY=1
       - no_proxy=localhost,127.0.0.1,::1,host.docker.internal,.local
