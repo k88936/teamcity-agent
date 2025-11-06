@@ -1,7 +1,6 @@
 services:
   app:
     image: kvtodev/teamcity-agent
-    container_name: teamcity-agent
     privileged: true
     network_mode: bridge
     restart: unless-stopped
