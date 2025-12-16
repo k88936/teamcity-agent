@@ -6,10 +6,11 @@ services:
     restart: unless-stopped
     volumes:
       - ./config/dockerd_env:/etc/default/docker:ro
+
       - ./cache/docker:/var/lib/docker
-      - ./cache/gradle:/root/.gradle
-      - ./cache/m2:/root/.m2
-      - ./cache/android-sdk:/opt/android-sdk
+      - ./cache/.gradle:/root/.gradle
+      - ./cache/.m2:/root/.m2
+      - ./cache:/cache
     environment:
       - SERVER_URL=https://teamcity.k88936.top
       - AGENT_NAME=linux-agent
