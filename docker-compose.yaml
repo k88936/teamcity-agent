@@ -11,6 +11,8 @@ services:
       - ./cache/.gradle:/root/.gradle
       - ./cache/.m2:/root/.m2
       - ./cache:/cache
+    devices:
+      - /dev/kvm:/dev/kvm
     environment:
       - SERVER_URL=https://teamcity.k88936.top
       - AGENT_NAME=linux-agent
