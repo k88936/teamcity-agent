@@ -11,6 +11,8 @@ RUN apt-get update && \
 		jq \
 		xz-utils \
 		wget \
+		p7zip-full \
+		tar \
 		ca-certificates \
 		build-essential \
 		pkg-config \
